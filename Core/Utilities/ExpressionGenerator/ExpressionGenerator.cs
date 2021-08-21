@@ -10,6 +10,7 @@ namespace Core.Utilities.ExpressionGenerator
            where Tres : class, new()
     {
         private static MethodInfo MethodInfo;
+
         public static Expression<Func<Tres, bool>> Generate(Treq request)
         {
             Expression finalExpression = Expression.Constant(true);
@@ -47,7 +48,7 @@ namespace Core.Utilities.ExpressionGenerator
                     var stringObjectWithLowerCase = Expression.Call(property, "ToLower", null);
                     expression = Expression.Call(stringObjectWithLowerCase, MethodInfo, arguments);
                 }
-                //if you need to filter between two date, you have to set properties names to be 'TrhBasTarih','TrhBitTarih' 
+                //if you need to filter between two date, you have to set properties names to be 'TrhBasTarih','TrhBitTarih'
                 else if ((typeof(DateTime).IsAssignableFrom(item.PropertyType) || typeof(DateTime?).IsAssignableFrom(item.PropertyType)) && item.Name.Split('_').Length > 1)
                 {
                     var splittedDate = item.Name.Split('_');
@@ -84,7 +85,5 @@ namespace Core.Utilities.ExpressionGenerator
 
             return Expression.Lambda<Func<Tres, bool>>(finalExpression, parameter);
         }
-
     }
-
 }

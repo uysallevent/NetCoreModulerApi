@@ -1,6 +1,5 @@
 ﻿using BaseModule.Interfaces;
 using Core.Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -156,6 +155,5 @@ namespace BaseModule.Controllers
                 return BadRequest("While removing records by models, error occurred");
             }
         }
-
     }
 }

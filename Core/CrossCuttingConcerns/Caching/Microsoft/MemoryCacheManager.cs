@@ -10,7 +10,7 @@ namespace Core.CrossCuttingConcerns.Caching.Microsoft
 {
     public class MemoryCacheManager : ICacheManager
     {
-        IMemoryCache _memoryCache;
+        private IMemoryCache _memoryCache;
 
         public MemoryCacheManager()
         {

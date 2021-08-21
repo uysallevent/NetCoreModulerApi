@@ -14,6 +14,7 @@ namespace BaseModule.Business
     where T : class, IEntity, new()
     {
         private readonly IDalBase<T> _dalBase;
+
         public BusinessBase(IDalBase<T> dalBase)
         {
             _dalBase = dalBase;
@@ -35,7 +36,6 @@ namespace BaseModule.Business
         {
             var result = await _dalBase.UpdateRangeAsync(entities);
             return new SuccessDataResult<IEnumerable<T>>(result);
-
         }
 
         public virtual async Task<IDataResult<T>> GetAsync(T entity)
@@ -96,7 +96,7 @@ namespace BaseModule.Business
             var result = new Dictionary<int, int>();
             foreach (var item in ids)
             {
-                var removeResult =await DeleteAsync(item);
+                var removeResult = await DeleteAsync(item);
                 result.Add(item, removeResult.Data);
             }
             return new SuccessDataResult<Dictionary<int, int>>(result);
@@ -107,11 +107,10 @@ namespace BaseModule.Business
             var result = new Dictionary<T, int>();
             foreach (var item in entities)
             {
-                var removeResult =await DeleteAsync(item);
+                var removeResult = await DeleteAsync(item);
                 result.Add(item, removeResult.Data);
             }
             return new SuccessDataResult<Dictionary<T, int>>(result);
         }
-
     }
 }

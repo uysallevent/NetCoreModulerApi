@@ -54,5 +54,17 @@ namespace AuthModule.Controllers
                 return BadRequest("While login operation, error occurred");
             }
         }
+
+        [NonAction]
+        public override Task<IActionResult> Update([FromBody] UserAccount entity)
+        {
+            return base.Update(entity);
+        }
+
+        [NonAction]
+        public override Task<IActionResult> GetAll([FromBody] UserAccount entity = null)
+        {
+            return base.GetAll(entity);
+        }
     }
 }

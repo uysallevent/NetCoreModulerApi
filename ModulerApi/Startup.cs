@@ -7,7 +7,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using ModulerApi.ModuleIntegration;
-using System;
 using System.Collections.Generic;
 
 namespace ModulerApi
@@ -46,7 +45,6 @@ namespace ModulerApi
 
             services.AddModule<BaseModule.Startup>("BaseModule");
             services.AddModule<AuthModule.Startup>("AuthModule");
-
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -75,7 +73,6 @@ namespace ModulerApi
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "ModulerApi V1");
             });
-
         }
     }
 }

@@ -21,6 +21,5 @@ namespace BaseModule.Dal
                 return (DateTime)command.ExecuteScalar();
             }
         }
-
     }
 }

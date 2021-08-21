@@ -63,6 +63,7 @@ namespace Core.DataAccess.EntityFramework
                 return context.SaveChanges();
             }
         }
+
         public async Task<int> DeleteAsync(TEntity entity)
         {
             using (TContext context = new TContext())
@@ -115,11 +116,11 @@ namespace Core.DataAccess.EntityFramework
             }
         }
 
-        public async Task<List<TEntity>> GetAllAsync (Expression<Func<TEntity, bool>> filter = null)
+        public async Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter = null)
         {
             using (TContext context = new TContext())
             {
-                return  filter == null
+                return filter == null
                     ? await context.Set<TEntity>().ToListAsync()
                     : await context.Set<TEntity>().Where(filter).ToListAsync();
             }

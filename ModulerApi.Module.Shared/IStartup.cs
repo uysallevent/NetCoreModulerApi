@@ -7,6 +7,7 @@ namespace ModulerApi.Module.Shared
     public interface IStartup
     {
         void ConfigureServices(IServiceCollection services);
+
         void Configure(IApplicationBuilder app, IWebHostEnvironment env);
     }
 }

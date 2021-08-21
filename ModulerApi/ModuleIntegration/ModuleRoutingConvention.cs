@@ -1,11 +1,11 @@
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
 namespace ModulerApi.ModuleIntegration
 {
     /// <summary>
-    /// Adds the route prefix to all actions 
+    /// Adds the route prefix to all actions
     /// </summary>
     public class ModuleRoutingConvention : IActionModelConvention
     {
